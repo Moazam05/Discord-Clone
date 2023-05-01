@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 // Local Imports
 const User = require("../models/user");
 
@@ -24,7 +25,16 @@ const register = async (req, res) => {
 		});
 
 		// create JWT token
-		const token = "JWT token";
+		const token = jwt.sign(
+			{
+				userId: user._id,
+				email,
+			},
+			process.env.TOKEN_KEY,
+			{
+				expiresIn: "24h",
+			} 
+		);
 
 		res.status(201).json({
 			userDetails: {
