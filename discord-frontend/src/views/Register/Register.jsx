@@ -1,7 +1,8 @@
 import React from "react";
+import LoginWrapper from "../../components/LoginWrapper/LoginWrapper";
 
 const Register = () => {
-  return <div>Register</div>;
+  return <LoginWrapper>Register</LoginWrapper>;
 };
 
 export default Register;

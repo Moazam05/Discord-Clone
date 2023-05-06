@@ -1,10 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import Login from "./views/Login/Login.jsx";
 import Register from "./views/Register/Register.jsx";
 import Dashboard from "./views/Dashboard/Dashboard.jsx";
-
 import "./App.css";
 
 function App() {
