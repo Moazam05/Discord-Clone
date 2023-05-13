@@ -1,11 +1,15 @@
 // React Imports
 import React, { useState } from "react";
 // Custom
-import WhiteInputField from "../../shared/WhiteInputField/WhiteInputField";
+import WhiteInputField from "../../shared/InputFields/WhiteInputField";
+import PrimaryButton from "../../shared/Buttons/PrimaryButton";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const handleLogin = () => {};
 
   return (
     <>
@@ -23,6 +27,13 @@ const Login = () => {
         label="Password"
         placeholder="Enter Password"
         type="password"
+      />
+
+      <PrimaryButton
+        label="Log in"
+        additionalStyles={{ marginTop: "30px" }}
+        onClick={handleLogin}
+        disabled={!isFormValid}
       />
     </>
   );
