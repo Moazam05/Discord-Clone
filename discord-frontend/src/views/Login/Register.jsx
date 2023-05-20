@@ -5,6 +5,7 @@ import { Tooltip } from "@mui/material";
 // Custom
 import WhiteInputField from "../../shared/InputFields/WhiteInputField";
 import PrimaryButton from "../../shared/Buttons/PrimaryButton";
+import axios from "axios";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -39,8 +40,22 @@ const Register = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName, email, password, setIsFormValid]);
 
-  const handleRegister = () => {
-    console.log(userName, email, password);
+  const handleRegister = async () => {
+    const payload = {
+      username: userName,
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        payload
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
