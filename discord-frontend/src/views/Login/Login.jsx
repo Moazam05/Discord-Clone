@@ -1,9 +1,10 @@
 // React Imports
 import React, { useState, useEffect } from "react";
+// MUI Imports
+import { Tooltip } from "@mui/material";
 // Custom
 import WhiteInputField from "../../shared/InputFields/WhiteInputField";
 import PrimaryButton from "../../shared/Buttons/PrimaryButton";
-import { Tooltip } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const Login = () => {
   };
 
   const validatePassword = (password) => {
-    return password.length > 6 && password.length < 12;
+    return password.length > 5 && password.length < 13;
   };
 
   useEffect(() => {

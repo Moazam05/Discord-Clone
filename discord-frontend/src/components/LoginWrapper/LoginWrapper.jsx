@@ -21,7 +21,7 @@ const LoginWrapper = (props) => {
       <Box
         sx={{
           width: 700,
-          height: 400,
+          height: 475,
           bgcolor: "rgba(54, 57, 63, 0.45)",
           borderRadius: "4px",
           boxShadow: "0px 2px 10px 0 rgb(0 0 0 / 20%)",
