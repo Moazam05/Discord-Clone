@@ -1,5 +1,7 @@
 // React Imports
 import React, { useState, useEffect } from "react";
+// React Router Dom
+import { useNavigate } from "react-router-dom";
 // MUI Imports
 import { Tooltip } from "@mui/material";
 // Custom
@@ -8,6 +10,8 @@ import PrimaryButton from "../../shared/Buttons/PrimaryButton";
 import axios from "axios";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,9 +56,15 @@ const Register = () => {
         "http://localhost:5000/api/auth/register",
         payload
       );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+
+      if (response) {
+        navigate("/dashboard");
+      }
+    } catch (exception) {
+      return {
+        error: true,
+        exception,
+      };
     }
   };
 
